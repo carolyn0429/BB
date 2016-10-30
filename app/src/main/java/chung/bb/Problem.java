@@ -1,6 +1,6 @@
 package chung.bb;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by carolynhung on 10/12/16.
@@ -8,7 +8,7 @@ import java.util.List;
 public class Problem {
 
     private String problem;
-    private List<Answer> ansList;
+    private ArrayList<Answer> ansList;
     public Problem(){};
     public Problem(String problem){
         this.problem = problem;
@@ -22,11 +22,11 @@ public class Problem {
         this.problem = problem;
     }
 
-    public List<Answer> getAnsList() {
+    public ArrayList<Answer> getAnsList() {
         return ansList;
     }
 
-    public void setAnsList(List<Answer> ansList) {
+    public void setAnsList(ArrayList<Answer> ansList) {
         this.ansList = ansList;
     }
 }

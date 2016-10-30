@@ -1,9 +1,11 @@
 package chung.bb;
 
+import java.io.Serializable;
+
 /**
  * Created by carolynhung on 10/11/16.
  */
-public class Answer {
+public class Answer implements Serializable{
     public Answer(){};
     private String pros;
     private String cons;

@@ -2,10 +2,12 @@ package chung.bb;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class QuestionActivity extends AppCompatActivity {
     private String TAG = QuestionActivity.class.getSimpleName();
@@ -23,6 +24,7 @@ public class QuestionActivity extends AppCompatActivity {
     private Button btn_ans1;
     private Button btn_ans2;
     private Button btn_ans3;
+    public ArrayList<Answer> showAnsText = new ArrayList<>();
 
     // URL to get contacts JSON
     private static String url = "http://www.carolynhung.com/questions.json";
@@ -38,6 +40,40 @@ public class QuestionActivity extends AppCompatActivity {
         btn_ans3 = (Button)findViewById(R.id.btn_ans3);
         GetQuestions getQuestions = new GetQuestions(this);
         getQuestions.execute();
+
+        btn_ans1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // TODO Auto-generated method stub
+                Intent i_ans1 = new Intent(getApplicationContext(),AnswerActivity.class);
+                // duplicate code
+                i_ans1.putExtra("answerListExtra", showAnsText);
+                i_ans1.putExtra("ans_id", "1");
+                startActivity(i_ans1);
+            }
+        });
+
+        btn_ans2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // TODO Auto-generated method stub
+                Intent i_ans2 = new Intent(getApplicationContext(),AnswerActivity.class);
+                i_ans2.putExtra("answerListExtra", showAnsText);
+                i_ans2.putExtra("ans_id", "2");
+                startActivity(i_ans2);
+            }
+        });
+
+        btn_ans3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // TODO Auto-generated method stub
+                Intent i_ans3 = new Intent(getApplicationContext(),AnswerActivity.class);
+                i_ans3.putExtra("answerListExtra", showAnsText);
+                i_ans3.putExtra("ans_id", "3");
+                startActivity(i_ans3);
+            }
+        });
     }
 
     /**
@@ -61,7 +97,7 @@ public class QuestionActivity extends AppCompatActivity {
         @Override
         protected ArrayList<Problem> doInBackground(String... params) {
             ArrayList<Problem> probList = new ArrayList<>();
-            List<Answer> ansList = new ArrayList<>();
+            ArrayList<Answer> ansList = new ArrayList<>();
             HttpHandler sh = new HttpHandler();
             // Making a request to url and getting response
             String jsonStr = sh.makeServiceCall(url);
@@ -137,7 +173,7 @@ public class QuestionActivity extends AppCompatActivity {
              * */
 
             qTextView.setText(probList.get(0).getProblem());
-            List<Answer> showAnsText = new ArrayList<>();
+
             showAnsText = probList.get(0).getAnsList();
             btn_ans1.setText(showAnsText.get(0).getResp());
             btn_ans2.setText(showAnsText.get(1).getResp());

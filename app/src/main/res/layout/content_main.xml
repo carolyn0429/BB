@@ -50,15 +50,20 @@
         android:layout_toRightOf="@+id/textView"
         android:layout_toEndOf="@+id/textView" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="SOS"
-        android:id="@+id/sosTextView"
-        android:layout_alignBottom="@+id/imageView"
+    <ImageButton
+
+        android:id="@+id/btn_sos"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_alignLeft="@+id/btn_sod"
+        android:layout_alignStart="@+id/btn_sod"
+        android:layout_alignBottom="@+id/textView"
         android:layout_alignRight="@+id/btn_sod"
         android:layout_alignEnd="@+id/btn_sod"
-        android:layout_marginRight="39dp"
-        android:layout_marginEnd="39dp" />
+        android:layout_alignParentTop="true"
+        android:background="@drawable/sos_hdpi"
+        android:scaleType="fitXY"
+        android:layout_height="10dp"
+        android:layout_width="10dp"
+        android:src="@drawable/sos_hdpi" />
 </RelativeLayout>

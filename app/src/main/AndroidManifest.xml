@@ -28,6 +28,10 @@
         <activity
             android:name=".AnswerActivity"
             android:label="@string/title_activity_answer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SosActivity"
+            android:label="@string/title_activity_sos"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

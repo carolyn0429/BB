@@ -8,11 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button action;
     private Button story;
+    private ImageButton sos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         action = (Button)findViewById(R.id.btn_bia);
         story = (Button)findViewById(R.id.btn_sod);
+        sos = (ImageButton)findViewById(R.id.btn_sos);
         story.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -29,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        sos.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // TODO Auto-generated method stub
+                Intent i_sos = new Intent(getApplicationContext(),SosActivity.class);
+                startActivity(i_sos);
+            }
+        });
 
         action.setOnClickListener(new View.OnClickListener(){
             @Override
